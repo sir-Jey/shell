@@ -36,7 +36,7 @@ typedef struct {
 
 /* где указано '~' означает в коде ТРЕБУЕТСЯ РЕФАКТОРИНГ */
 
-void print_argvs(command_info_t commands[], int cmd_count)  /* for debug */
+static void print_argvs(command_info_t commands[], int cmd_count)  /* for debug */
 {   
     printf("ARGVS\n");
     for (int i=0; i<cmd_count; i++) {
@@ -48,7 +48,7 @@ void print_argvs(command_info_t commands[], int cmd_count)  /* for debug */
     printf("\n\n");
 }   
 
-void print_argv(command_info_t commands) /* for debug */
+static void print_argv(command_info_t commands) /* for debug */
 {   
     printf("argv[0]:");
     for (int i=0; i<commands.argc; i++) 
@@ -56,7 +56,7 @@ void print_argv(command_info_t commands) /* for debug */
     printf("\n\n");
 }   
 
-void free_commands(command_info_t *commands, int cmd_count) {
+static void free_commands(command_info_t *commands, int cmd_count) {
     for (int i=0; i<cmd_count; i++) {
         for (int j=0; j<commands[i].argc; j++) {
             free(commands[i].argv[j]);
@@ -65,7 +65,7 @@ void free_commands(command_info_t *commands, int cmd_count) {
     }
 }   
 
-int check_help(int argc, char *argv[]) {
+static int check_help(int argc, char *argv[]) {
     if (argc < 2) {
         fprintf(stderr, "Использование: %s <команда> [аргументы...]\n", argv[0]);
         return -1;
@@ -82,7 +82,7 @@ int check_help(int argc, char *argv[]) {
     return 1;
 }   
 
-int validate_operator_placement(command_info_t commands[], int cmd_count, const char *find_operator, int is_last_command)
+static int validate_operator_placement(command_info_t commands[], int cmd_count, const char *find_operator, int is_last_command)
 {
     for (int i = 0; i < cmd_count; i++) {
         int operator_pos = -1;
@@ -112,7 +112,7 @@ int validate_operator_placement(command_info_t commands[], int cmd_count, const 
     return 0;
 }  
 
-int parse_commands(int argc, char *argv[], command_info_t commands[]) 
+static int parse_commands(int argc, char *argv[], command_info_t commands[]) 
 {   
     int counter_conv = 0;
     int is_output_file = 0;
@@ -318,7 +318,7 @@ int parse_commands(int argc, char *argv[], command_info_t commands[])
     return num_arr;
 }
 
-int exec_single(command_info_t commands) 
+static int exec_single(command_info_t commands) 
 {
     struct sigaction newmask, oldmask;
     if (commands.background == BACKGROUND_ENABLED) {
@@ -413,7 +413,7 @@ int exec_single(command_info_t commands)
     return exit_code;
 }
 
-int exec_pipeline(command_info_t *commands, int cmd_count) 
+static int exec_pipeline(command_info_t *commands, int cmd_count) 
 {
     int pids[cmd_count];
     int prev_pipes[2] = {-1, -1};
