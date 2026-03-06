@@ -68,7 +68,7 @@ static int check_help(int argc, char *argv[]) {
         }
     }
     
-    return 1;
+    return(1);
 }   
 
 static int validate_operator_placement(command_info_t commands[], int cmd_count, const char *find_operator, int is_last_command)
@@ -94,11 +94,11 @@ static int validate_operator_placement(command_info_t commands[], int cmd_count,
             
             if (operator_pos == 0 && strcmp(find_operator, "<") != 0) {
                 fprintf(stderr, "Fatal error: Оператор %s не может быть первым аргументом команды\n", find_operator);
-                exit(1);
+                exit(EXIT_FAILURE);
             }
         }
     }
-    return 0;
+    return(0);
 }  
 
 static int parse_commands(int argc, char *argv[], command_info_t commands[]) 
