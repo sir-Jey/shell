@@ -329,7 +329,7 @@ static int exec_single(command_info_t commands)
             if (commands.output_append) {
                 if ((fd = open(commands.output_file, O_WRONLY | O_CREAT | O_APPEND, 0666)) < 0) {
                     perror("open");
-                    exit(1);
+                    exit(EXIT_FAILURE);
                 }
             } else {
                 if ((fd = open(commands.output_file, O_WRONLY | O_CREAT | O_TRUNC, 0666)) < 0) {
