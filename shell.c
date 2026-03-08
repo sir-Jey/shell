@@ -193,9 +193,9 @@ static int parse_commands(int argc, char *argv[], command_info_t commands[])
                         commands[num_arr-1].output_append = 0;
                         free(commands[num_arr-1].argv[j]);
                         free(commands[num_arr-1].argv[j+1]);
-                        for (int k=j; k<commands[num_arr-1].argc - 2; k++) {
+                        for (int k=j; k<commands[num_arr-1].argc - 2; k++) // щшфоышощврифвфыв 
                             commands[num_arr-1].argv[k] = commands[num_arr-1].argv[k+2];
-                        }
+                        
                         commands[num_arr-1].argc -= 2;
                         commands[num_arr-1].argv[commands[num_arr-1].argc] = NULL;
                         break;
