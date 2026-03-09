@@ -309,6 +309,7 @@ static int parse_commands(int argc, char *argv[], command_info_t commands[])
 
 static int exec_single(command_info_t commands) 
 {
+    pid_t pid;
     struct sigaction newmask, oldmask;
     if (commands.background == BACKGROUND_ENABLED) {
         newmask.sa_flags = SA_NOCLDWAIT;
@@ -319,7 +320,6 @@ static int exec_single(command_info_t commands)
         }
     }
 
-    pid_t pid;
     if ((pid = fork()) < 0) {
         perror("fork");
         exit(EXIT_FAILURE);
