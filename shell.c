@@ -408,6 +408,7 @@ static int exec_pipeline(command_info_t *commands, int cmd_count)
 {
     int pids[cmd_count];
     int prev_pipes[2] = {-1, -1};
+    int exit_code = 0;
 
     struct sigaction newmask, oldmask;
     if (commands->background == BACKGROUND_ENABLED) {
@@ -509,8 +510,6 @@ static int exec_pipeline(command_info_t *commands, int cmd_count)
         close(prev_pipes[1]);
     }
 
-
-    int exit_code = 0;
     if (commands->background == BACKGROUND_ENABLED) {
         printf("[%d]", BACKGROUND_ENABLED);
         for (int i=0; i<cmd_count; i++) 
