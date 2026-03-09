@@ -582,10 +582,12 @@ int main(int argc, char *argv[])
     int last_status = 0;
     int is_and_operator = 0;
     int is_or_operator = 0;
+    int start; 
+    int statuslock;
     
     while (i < argc) 
     {
-        int start = i;
+        start = i;
         while (i < argc && strcmp(argv[i], "&&") != 0 && strcmp(argv[i], "||") != 0) 
             i++;
         
@@ -594,7 +596,7 @@ int main(int argc, char *argv[])
             is_or_operator = (strcmp(argv[i], "||") == 0);
         }
         
-        int statuslock = exec_commands(argv, start, i-1);
+        statuslock = exec_commands(argv, start, i-1);
         
         if (is_and_operator) {
             if (statuslock != 0)
