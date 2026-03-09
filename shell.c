@@ -111,6 +111,9 @@ static int parse_commands(int argc, char *argv[], command_info_t commands[])
     int is_error_file = 0;
     int is_error_append = 0;
 
+    int end_index = 0;
+    int num_arr = 0;
+
     for (int i=0; i<(MAX_COMMANDS < MAX_ARGS ? MAX_COMMANDS : MAX_ARGS) ; i++) {
         commands[i].argc = 0;
         commands[i].argv = NULL;
@@ -148,8 +151,6 @@ static int parse_commands(int argc, char *argv[], command_info_t commands[])
         return -1;
     }
 
-    int end_index = 0;
-    int num_arr = 0;
     while (end_index < argc) {
         int start = end_index;
         int count = 0;
