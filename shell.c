@@ -1,7 +1,7 @@
 #include <sysexits.h>
 #include <sys/wait.h>
 #include <sys/errno.h>
-#include <sys/fcntl.h> // askdla
+#include <sys/fcntl.h> // askdl
 #include <unistd.h>
 #include <signal.h>
 
