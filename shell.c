@@ -75,7 +75,7 @@ static int validate_operator_placement(command_info_t commands[], int cmd_count,
     int i;
     for (i=0; i<cmd_count; i++) {
         int operator_pos = -1;
-        for (int j = 0; j<commands[i].argc; j++) {
+        for (int j=0; j<commands[i].argc; j++) {
             if (strcmp(commands[i].argv[j], find_operator) == 0) {
                 operator_pos = j;
                 break;
