@@ -73,7 +73,7 @@ static int check_help(int argc, char *argv[]) {
 static int validate_operator_placement(command_info_t commands[], int cmd_count, const char *find_operator, int is_last_command)
 {
     int i;
-    for (i = 0; i < cmd_count; i++) {
+    for (i=0; i < cmd_count; i++) {
         int operator_pos = -1;
         for (int j = 0; j < commands[i].argc; j++) {
             if (strcmp(commands[i].argv[j], find_operator) == 0) {
