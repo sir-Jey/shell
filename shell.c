@@ -67,7 +67,6 @@ static int check_help(int argc, char *argv[]) {
             return(0);
         }
     }
-    
     return(1);
 }   
 
