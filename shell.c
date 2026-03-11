@@ -18,7 +18,7 @@ typedef struct {
     char **argv; /* [argV1] | [argV2] | [argV3] | [argV4]  */ 
     int argc; 
     char *output_file; фыв
-    int output_append;  ы
+    int output_append;  
     char *error_file;  
     int error_append;  
     char *input_file;  
