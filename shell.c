@@ -1,5 +1,5 @@
 #define _GNU_SOURCE
-asd
+
 #include <sysexits.h>
 #include <sys/wait.h>
 #include <sys/errno.h>
