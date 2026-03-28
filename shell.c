@@ -13,7 +13,7 @@
 
 #define MAX_COMMANDS        1024 // ~ MAX SHELL COMMANDS
 #define MAX_ARGS            (sysconf(_SC_ARG_MAX))
-#define BACKGROUND_ENABLED  1 /// 
+#define BACKGROUND_ENABLED  1
 
 
 typedef struct {
