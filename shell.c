@@ -4,7 +4,7 @@
 #include <sys/wait.h>
 #include <sys/errno.h>
 #include <sys/fcntl.h>
-#include <unistd.h> фыв
+#include <unistd.h> 
 #include <signal.h>
 
 #include <stdio.h>
